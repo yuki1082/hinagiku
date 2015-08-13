@@ -1,5 +1,18 @@
 <h1>タスク一覧</h1>
 
+<ul class="navigation">
+	<% if params[:action] == "index"%>
+	 <li class="selected">末完了タスク</li>
+	 <% else %>
+	 <li><%= link_to "末完了タスク", :tasks %></li>
+	<% end %>
+	<% if params[:action] == "done" %>
+	<li class="selected">完了タスク</li>
+	<% else %>
+	<li><%= link_to "完了タスク", [:done, :tasks] %></li>
+	<% end %>
+</ul>
+
 <table class="tasks">
 	<col class="name" />
 	<col class="due_date"/>
@@ -8,7 +21,11 @@
 		<td> <%= link_to task.name, task %> </td>
 		<td> <%= task.due_date %></td>
 		<td> <%= link_to "修正", [:edit, task] %> </td>
+		<% if task.done? %>
+		<td> <%= link_to "元に戻す", [:restart, task], method: :put %></td>
+		<% else %>
 		<td> <%= link_to "完了", [:finish, task], method: :put %> </td>
+		<% end %>
 		<td> <%= link_to "削除", task, method: :delete, confirm: "Are you sure?" %></td>
 
 	</tr>
