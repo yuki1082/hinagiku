@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
 	def index
-		@tasks = Task.where(done: false)
+		@tasks = Task.undone
 	end 
 
 	def show
@@ -39,7 +39,7 @@ class TasksController < ApplicationController
 	end 
 
 	def done
-		@tasks = Task.where(done: true)
+		@tasks = Task.done
 		render :index
 	end 
 
@@ -47,6 +47,12 @@ class TasksController < ApplicationController
 		@task = Task.find(params[:id])
 		@task.update_attribute(:done, false)
 		redirect_to :back
+	end 
+
+	def search
+		@tasks = Task.undone
+		@tasks = @tasks.search(params[:q]) if params[:q].present?
+		render :index
 	end 
 
 

@@ -1,4 +1,8 @@
 <h1>タスク一覧</h1>
+<%= form_tag [:search, :tasks], method: :get, style: "text-align: right" do  %>
+	<%= text_field_tag "q", params[:q]%>
+	<%= submit_tag "検索" %>
+<% end %>
 
 <ul class="navigation">
 	<% if params[:action] == "index"%>
@@ -20,14 +24,7 @@
 	<tr>
 		<td> <%= link_to task.name, task %> </td>
 		<td> <%= task.due_date %></td>
-		<td> <%= link_to "修正", [:edit, task] %> </td>
-		<% if task.done? %>
-		<td> <%= link_to "元に戻す", [:restart, task], method: :put %></td>
-		<% else %>
-		<td> <%= link_to "完了", [:finish, task], method: :put %> </td>
-		<% end %>
-		<td> <%= link_to "削除", task, method: :delete, confirm: "Are you sure?" %></td>
-
+		<td> <%= links_for task %> </td>
 	</tr>
 	<% end %>
 </table>
