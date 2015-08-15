@@ -5,5 +5,8 @@ class Task < ActiveRecord::Base
   scope :search, lambda { |q|
   	where(["name LIKE ?", "%#{q}%"])
   }
+
+  validates :name, presence: true, length: {maximum: 20}
+  validates :description, length:{maximum: 200}
 end
 
