@@ -1,0 +1,10 @@
+ja:  
+  activerecord:  
+    attributes:  
+      task:  
+        name:  名前
+        description:  説明
+        due_date:  期限  
+        done:  実施済
+  will_paginate:  
+    page_gap:  …

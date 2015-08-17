@@ -7,7 +7,7 @@ gem 'rails', '3.2.22'
 
 gem 'sqlite3'
 gem 'will_paginate'
-
+gem 'rails-i18n'
 
 # Gems used only for assets and not required
 # in production environments by default.

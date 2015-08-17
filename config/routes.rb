@@ -3,7 +3,10 @@ Hinagiku::Application.routes.draw do
   resources :tasks do 
     put :finish, :restart, on: :member
     get :done, :search, on: :collection
+  end 
 
+  resources :categories do 
+    resources :tasks
   end 
 
   # The priority is based upon order of creation:
