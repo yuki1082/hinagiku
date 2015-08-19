@@ -41,3 +41,12 @@ display: inline;
 padding: 5px;
 }
 
+ul#categories li.selected {
+font-weight: bold;
+}
+
+div#task_category {
+color: #080;
+font-weight: bold;
+}
+

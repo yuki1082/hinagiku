@@ -2,7 +2,8 @@ class TasksController < ApplicationController
 	def index
 		if params[:category_id]
 			@category = Category.find(params[:category_id])
-			@tasks = @category.tasks.undone.paginate(page: params[:page], per_page: 10)
+			@tasks = @category.tasks
+			@tasks = @tasks.undone.paginate(page: params[:page], per_page: 10)
 		else
 			@tasks = Task.undone.paginate(page: params[:page], per_page: 10)
 		end 
@@ -26,8 +27,6 @@ class TasksController < ApplicationController
 			redirect_to @task
 		else
 			render :edit
-	
-
 		end 
 	end 
 
@@ -53,7 +52,13 @@ class TasksController < ApplicationController
 	end 
 
 	def done
-		@tasks = Task.done.paginate(page: params[:page], per_page: 10)
+		if params[:category_id]
+			@category = Category.find(params[:category_id])
+			@tasks = @category.tasks
+			@tasks = @tasks.done.paginate(page: params[:page], per_page: 10)
+		else
+			@tasks = Task.done.paginate(page: params[:page], per_page: 10)
+		end 
 		render :index
 	end 
 

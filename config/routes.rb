@@ -6,8 +6,11 @@ Hinagiku::Application.routes.draw do
   end 
 
   resources :categories do 
-    resources :tasks
+    resources :tasks do
+      get :done, on: :collection
+    end 
   end 
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

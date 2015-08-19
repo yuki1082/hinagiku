@@ -1,5 +1,16 @@
 <ul id="categories">
+	<% action = params[:action] == "done" ? :done : nil %>
+	<% if @category %>
+	<li><%= link_to "全部", [action, :tasks] %></li>
+	<% else %>
+	<li class="selected"> 全部</li>
+	<% end %>	
+
 	<% Category.all.each do |c| %>
-	<li><%= link_to c.name, [c, :tasks]%></li>
+	  <% if @category != c %>
+	    <li><%= link_to c.name, [action, c, :tasks]%></li>
+	  <% else %>
+	    <li class="selected"><%= c.name %></li>
+	  <% end %>
 	<% end %>
 </ul>
