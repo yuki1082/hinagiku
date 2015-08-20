@@ -5,6 +5,7 @@ ja:
         name:  名前
         description:  説明
         due_date:  期限  
-        done:  実施済
+        done:  実施済  
+        category_id: カテゴリー  
   will_paginate:  
     page_gap:  …

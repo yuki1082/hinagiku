@@ -1,0 +1,12 @@
+<ul class="radio_buttons">
+<li>
+	<%= f.radio_button(:category_id, "", checkd: @task.category_id.nil?) %>
+	<%= f.label(:category_id, "---", value:'') %>
+</li>
+<% Category.all.each do |c| %>
+	<li>
+		<%= f.radio_button(:category_id, c.id) %>
+		<%= f.label :category_id, c.name, value: c.id %>
+	</li>
+<% end %>
+</ul>
