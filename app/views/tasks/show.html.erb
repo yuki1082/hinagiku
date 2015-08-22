@@ -4,4 +4,4 @@
 <% end %>
 <div id="task_due_date"><%= @task.due_date%> </div> 
 <div id="task_description"><%= simple_format(@task.description)%> </div>
-<%= link_to "タスク一覧", :tasks %>
+<div><%= link_to "修正", [:edit, @task] %></div>

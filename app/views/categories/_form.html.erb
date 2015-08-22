@@ -1,0 +1,7 @@
+<%= form_for @category do |form| %>
+  <%= render "shared/errors", object: @category %>
+<ul>
+  <li><%= form.label :name %><%= form.text_field :name %></li>
+  <li><%= form.submit "送信" %></li>
+</ul>
+<% end %>

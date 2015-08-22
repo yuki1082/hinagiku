@@ -1,15 +1,17 @@
 Hinagiku::Application.routes.draw do
-  root to: "tasks#index" 
-  resources :tasks do 
+  root to: "tasks#index"
+  resources :tasks do
     put :finish, :restart, on: :member
     get :done, :search, on: :collection
-  end 
+  end
 
-  resources :categories do 
+  resources :categories, except:[:show] do
     resources :tasks,  only: [:index] do
       get :done, on: :collection
-    end 
-  end 
+    end
+  end
+
+  match '*anything' => 'errors#not_found'
 
 
   # The priority is based upon order of creation:
