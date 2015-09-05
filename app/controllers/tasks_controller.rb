@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
 	before_filter :prepare, only: [:index, :done]
+
 	def index
 			@tasks = @tasks.undone.paginate(page: params[:page], per_page: 10)
 	end 

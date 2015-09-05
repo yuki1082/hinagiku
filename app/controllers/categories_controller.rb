@@ -26,7 +26,7 @@ class CategoriesController < ApplicationController
 
 	def update
 		@category = Category.find(params[:id])
-		@category.update_attributes = params[:category]
+		@category.attributes = params[:category]
 		if @category.save
 			redirect_to @category
 		else
