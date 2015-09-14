@@ -8,6 +8,10 @@
       <%= label_tag :password, "パスワード" %>
       <%= password_field_tag :password %>
     </li>
+    <li style="text-align: center">
+      <%= check_box_tag :remember_me %>
+      <%= label_tag :rember_me, "自動ログイン", class: "plain" %>
+    </li>
     <li class="button">
       <%= submit_tag "ログイン" %>
     </li>
