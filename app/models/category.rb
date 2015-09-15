@@ -1,7 +1,8 @@
 require 'nkf'
 class Category < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :owner_id
   has_many :tasks, dependent: :nullify
+  belongs_to :owner, class_name: "User"
   validates :name, presence: true, length:{maximum: 10}
   validates :name, uniqueness: {case_senstive: false}
   before_validation :normalize_values

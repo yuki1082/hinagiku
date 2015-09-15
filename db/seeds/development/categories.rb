@@ -1,7 +1,7 @@
 # encoding: utf-8
-
+alice = User.find_by_login_name("alice")
 %w(仕事 生活 趣味).each do |name|
-Category.create(name: name)
+Category.create(name: name, owner_id: alice.id)
 end 
 
 tasks = Task.order('id').limit(5)
