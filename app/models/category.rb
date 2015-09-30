@@ -4,7 +4,7 @@ class Category < ActiveRecord::Base
   has_many :tasks, dependent: :nullify
   belongs_to :owner, class_name: "User"
   validates :name, presence: true, length:{maximum: 10}
-  validates :name, uniqueness: {case_senstive: false}
+  validates :name, uniqueness: {scope: :owner_id, case_senstive: false}
   before_validation :normalize_values
 
 
