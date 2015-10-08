@@ -1,5 +1,5 @@
 class Task < ActiveRecord::Base
-  attr_accessible :description, :done, :due_date, :name, :category_id, :owner_id
+  attr_accessible :description, :done, :due_date, :name, :category_id 
   belongs_to :category
   belongs_to :owner, class_name: "User"
   scope :done, where(done: true).order("due_date DESC")

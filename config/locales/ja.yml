@@ -9,5 +9,9 @@ ja:
         category_id: カテゴリーid  
       category:
         name: 名前
+      user:
+        login_name: ログイン名
+        display_name: ディスプレイ名
+        password: パスワード
   will_paginate:  
     page_gap:  …
