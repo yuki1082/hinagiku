@@ -3,5 +3,6 @@
 	user.login_name = name
 	user.display_name = name.capitalize
 	user.password = "password"
+	user.setting_password = true
 	user.save!
 end 
