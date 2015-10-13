@@ -1,0 +1,11 @@
+ja:
+  flash:
+    sessions:  
+      create:  
+        notice:  ログインしたよ
+        alert: パスワードとログイン名が一致しないんですけど・・・
+      destroy:
+        notice: ログアウトしたよ
+    accounts:
+      update:  
+        notice:  アカウント情報を更新しました
