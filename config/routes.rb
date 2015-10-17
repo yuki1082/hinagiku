@@ -13,7 +13,9 @@ Hinagiku::Application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
   resource :account, except: [:edit]
-
+  resource :password, only: [:update, :edit] do 
+    get :updated
+  end 
   match '*anything' => 'errors#not_found'
 
 

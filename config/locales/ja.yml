@@ -12,6 +12,9 @@ ja:
       user:
         login_name: ログイン名
         display_name: ディスプレイ名
-        password: パスワード
+        password:  パスワード
+        current_password:  現在のパスワード
+        new_password:  新しいパスワード
+        new_password_confirmation:  新しいパスワードの確認
   will_paginate:  
     page_gap:  …

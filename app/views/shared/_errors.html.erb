@@ -1,8 +1,8 @@
 <% unless object.errors.empty? %>
-<p>入力にあやまりがあります</p>
-<ul class="error_messages">
-  <% object.errors.full_messages.each do |message| %>
-    <%= message %>
-  <% end %>
-</ul>
+  <p>入力にあやまりがあります</p>
+  <ul class="error_messages">
+    <% object.errors.full_messages.each do |message| %>
+      <%= message %>
+    <% end %>
+  </ul>
 <% end %>
