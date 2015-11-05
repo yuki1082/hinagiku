@@ -1,0 +1,28 @@
+<%= form_for @user, url: :account do |form| %>
+  <%= render "shared/errors", object: form.object %>
+  <ul>
+    <li>
+      <%= form.label :login_name %>
+      <%= form.text_field :login_name %>
+    </li>
+    <li>
+      <%= form.label :display_name %>
+      <%= form.text_field :display_name %>
+    </li>
+    <%= form.fields_for :emails do |fields| %>
+      <li>
+        <%= fields.label  :adress  %>
+        <%= fields.text_field :adress %>
+      </li>
+    <% end %>
+    <li>
+      <%= form.label :password %>
+      <%= form.password_field :password %>
+    </li>
+    <li>
+      <%= form.label :password_confirmation %>
+      <%= form.password_field :password_confirmation %>
+    </li>
+    <li class="buttons"><%= form.submit "登録" %></li>
+  </ul>
+<% end %>

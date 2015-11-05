@@ -6,6 +6,8 @@
   <% @categories.each do |category| %>
     <tr>
       <td><%= category.name %></td>
+      <td><%= category.id %></td>
+      <td><%= category.owner_id %></td>
       <td><%= links_for category %></td>
     </tr>
   <% end %>
