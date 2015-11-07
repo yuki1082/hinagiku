@@ -6,6 +6,14 @@ class AccountsController < ApplicationController
 	end 
 
 	def create
+		@user = User.new(params[:user])
+		@user.setting_password = true
+		if @user.save
+			session[:user_id] = @user.id
+			redirect_to action: :thanks
+		else
+			render :new
+		end 
 	end 
 
 	def update
@@ -15,6 +23,10 @@ class AccountsController < ApplicationController
 		else
 			render :show
 		end 
+	end 
+
+	def thanks
+		@email = curren_user.emails.first 
 	end 
 
 end

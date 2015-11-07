@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible :login_name, :display_name, :password, :password_confirmation,
     :new_password, :current_password, :new_password_confirmation,
     :emails_attributes
-    accepts_nested_attributes_for :emails
+  accepts_nested_attributes_for :emails
 
 
   def setting_password?
@@ -29,6 +29,8 @@ class User < ActiveRecord::Base
   validates :current_password, presence: { :if=> :changing_password? }
   validates :new_password, presence: { :if=> :changing_password? }, length: { minimum: 4,allow_blank: true },
     confirmation: true
+  validates :password, presence: {:if => setting_password?}, length: {:minimum: 4, allow_blank: true},
+    comfirmation: true
 
   validate do
     if changing_password? && !authenticate(current_password)
