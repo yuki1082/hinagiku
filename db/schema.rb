@@ -22,14 +22,14 @@ ActiveRecord::Schema.define(:version => 20151031063151) do
 
   create_table "emails", :force => true do |t|
     t.integer  "user_id",            :null => false
-    t.string   "adress"
+    t.string   "address"
     t.string   "verification_token"
     t.datetime "verified_at"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
   end
 
-  add_index "emails", ["adress"], :name => "index_emails_on_adress", :unique => true
+  add_index "emails", ["address"], :name => "index_emails_on_address", :unique => true
 
   create_table "tasks", :force => true do |t|
     t.string   "name"

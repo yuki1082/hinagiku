@@ -2,7 +2,7 @@
   <p>入力にあやまりがあります</p>
   <ul class="error_messages">
     <% object.errors.full_messages.each do |message| %>
-      <%= message %>
+      <li><%= message %></li>
     <% end %>
   </ul>
 <% end %>

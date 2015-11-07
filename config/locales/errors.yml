@@ -12,5 +12,13 @@ ja:
               taken: "%{value}は重複しています"
         user:
           attributes:
+            login_name:
+              taken:  "%{value}は他のユーザが使用しております"
             current_password:
               invalid: "が正しくありません"
+
+        email:
+          attributes:
+            address:
+              taken: "%{value}は他のユーザに使われております"
+

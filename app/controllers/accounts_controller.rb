@@ -26,7 +26,7 @@ class AccountsController < ApplicationController
 	end 
 
 	def thanks
-		@email = curren_user.emails.first 
+		@email = current_user.emails.first 
 	end 
 
 end

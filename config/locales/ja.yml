@@ -13,13 +13,14 @@ ja:
         login_name: ログイン名
         display_name: ディスプレイ名
         password:  パスワード
+        password_confirmation: パスワードの確認
         new_password_confirmation:  パスワードの確認
         current_password:  現在のパスワード
         new_password:  新しいパスワード
         new_password_confirmation:  新しいパスワードの確認
-      user/emils:
-        adress:  アドレス
+      user/emails:
+        address:  アドレス
       email:  
-        adress: アドレス
+        address: アドレス
   will_paginate:  
     page_gap:  …
