@@ -53,6 +53,8 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mail-iso-2022-jp (2.0.4)
+      mail (>= 2.2.6, <= 2.6.3)
     mime-types (1.25.1)
     multi_json (1.11.2)
     polyglot (0.3.5)
@@ -117,6 +119,7 @@ DEPENDENCIES
   bcrypt-ruby
   coffee-rails (~> 3.2.1)
   jquery-rails
+  mail-iso-2022-jp
   rails (= 3.2.22)
   rails-i18n
   sass-rails (~> 3.2.3)
@@ -124,3 +127,6 @@ DEPENDENCIES
   therubyracer
   uglifier (>= 1.0.3)
   will_paginate
+
+BUNDLED WITH
+   1.10.6

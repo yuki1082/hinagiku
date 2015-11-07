@@ -18,6 +18,9 @@ Hinagiku::Application.routes.draw do
   resource :password, only: [:update, :edit] do
     get :updated
   end
+
+  get "v/:id/:token", to: 'emails#verify',id: /\d+/, token: /[0-9A-Za-z]+/, as: :email_verification
+
   match '*anything' => 'errors#not_found'
 
 
