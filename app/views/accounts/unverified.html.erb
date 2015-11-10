@@ -1,0 +1,14 @@
+<h1>メールアドレスを確認してください</h1>
+<p>まだメールアドレスの確認が完了していません。</p>
+<p>すでにお送りした確認メールの本文に記載された URL にアクセスしてください。</p>
+<p>あるいは、次のフォームからメールを再送信してください</p>
+<%= form_for @email do |form| %>
+  <%= render "shared/errors", object: form.object %>
+  <ul>
+    <li>
+      <%= form.label :address %>
+      <%= form.text_field :address %>
+    </li>
+    <li class="buttons"><%= form.submit "再送信" %></li>
+  </ul>
+<% end %>

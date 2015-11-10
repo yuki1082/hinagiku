@@ -1,12 +1,13 @@
 class SessionsController < ApplicationController
   skip_before_filter :authenticate_user
+  skip_before_filter :reject_unverified_user
   def create
     user = User.find_by_login_name(params[:login_name])
-    if user &&	user.authenticate(params[:password])
+    if user &&  user.authenticate(params[:password])
       if params[:remember_me]
         cookies.permanent.signed[:user_id] = user.id
         cookies.permanent.signed[:auto_login_token] = user.auto_login_token
-      end 
+      end
       flash.notice = t("flash.sessions.create.notice")
       session[:user_id] = user.id
       redirect_to :root
@@ -15,13 +16,13 @@ class SessionsController < ApplicationController
       render :new
     end
   end
-  
+
   def destroy
-  	session.delete(:user_id)
+    session.delete(:user_id)
     cookies.delete(:user_id)
-    cookies.delete(:auto_login_token)    
+    cookies.delete(:auto_login_token)
     flash.notice = t("flash.sessions.destroy.notice")
-  	redirect_to [:new, :session]
-  end 
-  
+    redirect_to [:new, :session]
+  end
+
 end

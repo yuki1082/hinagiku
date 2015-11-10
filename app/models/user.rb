@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
 
   before_save do
     if changing_password?
-      self_password_digest = BCrypt::Password.create(new_password)
+      self.password_digest = BCrypt::Password.create(new_password)
     elsif setting_password?
       self.password_digest = BCrypt::Password.create(password)
     end

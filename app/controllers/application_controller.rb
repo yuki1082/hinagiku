@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   rescue_from Exception, with: :render_500
   rescue_from ActiveRecord::RecordNotFound, with: :render_404
   rescue_from ActionController::RoutingError, with: :render_404
-  before_filter :authenticate_user
+  before_filter :authenticate_user, :reject_unverified_user
   private
   def render_404(exception)
     raise exception unless Rails.env.production?
@@ -30,4 +30,7 @@ class ApplicationController < ActionController::Base
     redirect_to [:new, :session] unless current_user
   end
 
+  def reject_unverified_user
+    redirect_to [:unverified, :account] unless current_user.verified?
+  end 
 end

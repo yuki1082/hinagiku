@@ -11,10 +11,18 @@ Hinagiku::Application.routes.draw do
     end
   end
 
+
+  resources :emails, only:[:update] do 
+    get :updated, on: :member
+  end 
   resource :session, only: [:new, :create, :destroy]
+ 
   resource :account, except: [:edit] do
-    get :thanks
+    get :thanks, :unverified
   end
+
+
+
   resource :password, only: [:update, :edit] do
     get :updated
   end
